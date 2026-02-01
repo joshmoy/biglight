@@ -20,6 +20,7 @@ export interface DropdownProps {
 	placeholder?: string;
 	className?: string;
 	id?: string;
+	showLeftIcon?: boolean;
 }
 
 export function Dropdown({
@@ -32,6 +33,7 @@ export function Dropdown({
 	placeholder,
 	className = '',
 	id,
+	showLeftIcon = true,
 }: DropdownProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isFocused, setIsFocused] = useState(false);
@@ -44,7 +46,6 @@ export function Dropdown({
 
 	const dropdownId = id || `dropdown-${label.toLowerCase().replace(/\s+/g, '-')}`;
 
-	// Close dropdown when clicking outside
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
@@ -78,7 +79,6 @@ export function Dropdown({
 		setIsFocused(false);
 	};
 
-	// Determine border style based on state
 	const getBorderStyle = () => {
 		if (disabled) {
 			return 'border-0';
@@ -92,7 +92,6 @@ export function Dropdown({
 		return 'border-[0.5px] border-[#d1cfc7]';
 	};
 
-	// Determine icon to show
 	const getClockIcon = () => {
 		return disabled ? ClockDisabledIcon : ClockIcon;
 	};
@@ -114,11 +113,11 @@ export function Dropdown({
 					}`}
 				>
 					<div className="flex items-center gap-2 flex-1">
-						<img
+						{showLeftIcon && <img
 							src={getClockIcon()}
 							alt=""
 							className="w-[15px] h-[15px] flex-shrink-0"
-						/>
+						/>}
 						<span
 							className={`text-body-md leading-body-md ${
 								disabled
@@ -140,7 +139,6 @@ export function Dropdown({
 					/>
 				</button>
 
-				{/* Floating Label */}
 				{showFloatingLabel && (
 					<div className="absolute left-3 -top-[6px] flex items-center gap-0 bg-[#faf9f5] pointer-events-none">
 						{hasValue && !disabled && (
@@ -159,7 +157,6 @@ export function Dropdown({
 					</div>
 				)}
 
-				{/* Dropdown Menu */}
 				{isOpen && !disabled && (
 					<div className="absolute top-full left-0 w-full mt-2 bg-[#faf9f5] rounded-md shadow-lg border border-[#d1cfc7] z-10 overflow-hidden">
 						<div className="max-h-[200px] overflow-y-auto">
@@ -178,7 +175,6 @@ export function Dropdown({
 				)}
 			</div>
 
-			{/* Required text */}
 			{required && (
 				<span className="text-body-xs leading-body-xs">
 					<span className="text-warning">*</span>

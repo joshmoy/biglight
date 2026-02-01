@@ -29,6 +29,10 @@ const meta = {
 			control: 'text',
 			description: 'Placeholder text (defaults to label)',
 		},
+		showLeftIcon: {
+			control: 'boolean',
+			description: 'Show left icon in the trigger',
+		},
 		onChange: {
 			action: 'changed',
 			description: 'Change handler',
@@ -80,6 +84,12 @@ export const Active: Story = {
 
 export const Selected: Story = {
 	render: () => <DropdownWrapper label="Label" value="retail" required />,
+};
+
+export const WithLeftIcon: Story = {
+	render: () => (
+		<DropdownWrapper label="Label" value="retail" required showLeftIcon />
+	),
 };
 
 export const Disabled: Story = {
@@ -159,6 +169,7 @@ export const Playground: Story = {
 		value: '',
 		disabled: false,
 		required: true,
+		showLeftIcon: true,
 		options: defaultOptions,
 	},
 	render: (args) => <DropdownWrapper {...args} />,
