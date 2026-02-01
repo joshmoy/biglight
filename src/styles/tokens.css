@@ -15,6 +15,10 @@
 	--color-information: var(--text-color-information);
 	--color-inverse: var(--text-color-inverse);
 	--color-disabled: var(--text-color-disabled);
+	--color-action-onprimary: var(--text-color-action-onprimary);
+	--color-action-onsecondary: var(--text-color-action-onsecondary);
+	--color-action-ontertiary: var(--text-color-action-ontertiary);
+	--color-action-disabled: var(--text-color-action-disabled);
 
 	/* Surface/background colors */
 	--color-surface-page: var(--surface-color-page);
@@ -25,6 +29,10 @@
 	--color-surface-disabled: var(--surface-color-disabled-light);
 	--color-surface-disabled-dark: var(--surface-color-disabled-dark);
 	--color-surface-selected: var(--surface-color-action-selected);
+	--color-action-primary: var(--surface-color-action-primary);
+	--color-action-secondary: var(--surface-color-action-secondary);
+	--color-action-hover-primary: var(--surface-color-action-hover-primary);
+	--color-action-hover-secondary: var(--surface-color-action-hover-secondary);
 
 	/* Border colors */
 	--color-border-primary: var(--border-color-primary);
@@ -35,6 +43,8 @@
 	--color-border-warning: var(--border-color-warning);
 	--color-border-disabled: var(--border-color-disabled);
 	--color-border-inverse: var(--border-color-inverse);
+	--color-border-action-on-page: var(--border-color-action-on-page);
+	--color-border-action-active: var(--border-color-action-active);
 
 	/* Radii */
 	--radius-none: var(--border-radius-none);
@@ -83,4 +93,27 @@
 	--leading-heading-h7: var(--line-height-heading-h7);
 	--leading-action-sm: var(--line-height-action-sm);
 	--leading-action-md: var(--line-height-action-md);
+
+	/* Font weights */
+	--font-weight-light: var(--font-font-weight-paragraph-light);
+	--font-weight-regular: var(--font-font-weight-paragraph-regular);
+	--font-weight-medium: var(--font-font-weight-paragraph-medium);
+	--font-weight-semibold: var(--font-font-weight-paragraph-semi-bold);
+	--font-weight-bold: var(--font-font-weight-paragraph-bold);
+	--font-weight-extrabold: var(--font-font-weight-paragraph-extra-bold);
+
+	/* Spacing */
+	--spacing-0_5: var(--spacing-3xs);
+	--spacing-1: var(--spacing-2xs);
+	--spacing-2: var(--spacing-xs);
+	--spacing-3: var(--spacing-sm);
+	--spacing-4: var(--spacing-md);
+	--spacing-6: var(--spacing-lg);
+	--spacing-8: var(--spacing-xl);
+	--spacing-10: var(--spacing-2xl);
+	--spacing-12: var(--spacing-3xl);
+	--spacing-16: var(--spacing-4xl);
+	--spacing-20: var(--spacing-5xl);
+	--spacing-24: var(--spacing-6xl);
+	--spacing-28: var(--spacing-7xl);
 }
