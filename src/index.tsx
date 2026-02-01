@@ -1,53 +1,46 @@
-import { render } from 'preact';
+import { render } from "preact";
+import { useEffect, useState } from "preact/hooks";
 
-import preactLogo from './assets/preact.svg';
-import { ThemeToggle } from './components';
-import { ThemeProvider } from './contexts';
-import './style.css';
+import { LoginDrawer, ThemeToggle } from "./components";
+import { ThemeProvider } from "./contexts";
+import "./style.css";
 
 export function App() {
-	return (
-    <div>
-      <div className="fixed top-4 right-4">
-        <ThemeToggle />
-      </div>
-      <a href="https://preactjs.com" target="_blank">
-        <img src={preactLogo} alt="Preact logo" height="160" width="160" />
-      </a>
-      <h1 className="font-heading">Get Started building Vite-powered Preact Apps </h1>
-      <section>
-        <Resource
-          title="Learn Preact"
-          description="If you're new to Preact, try the interactive tutorial to learn important concepts"
-          href="https://preactjs.com/tutorial"
-        />
-        <Resource
-          title="Differences to React"
-          description="If you're coming from React, you may want to check out our docs to see where Preact differs"
-          href="https://preactjs.com/guide/v10/differences-to-react"
-        />
-        <Resource
-          title="Learn Vite"
-          description="To learn more about Vite and how you can customize it to fit your needs, take a look at their excellent documentation"
-          href="https://vitejs.dev"
-        />
-      </section>
+  const [size, setSize] = useState<"mobile" | "desktop">("desktop");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateSize = () => {
+      setSize(mediaQuery.matches ? "mobile" : "desktop");
+    };
+
+    updateSize();
+    mediaQuery.addEventListener("change", updateSize);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateSize);
+    };
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-white">
+      <nav className="w-full bg-white shadow-md">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-end">
+          <ThemeToggle />
+        </div>
+      </nav>
+      <main className="min-h-[calc(100vh-72px)] flex items-center justify-center px-6 py-8">
+        <LoginDrawer size={size} />
+      </main>
     </div>
   );
 }
 
-function Resource(props) {
-	return (
-		<a href={props.href} target="_blank" class="resource">
-			<h2>{props.title}</h2>
-			<p className="font-body">{props.description}</p>
-		</a>
-	);
-}
-
 render(
-	<ThemeProvider>
-		<App />
-	</ThemeProvider>,
-	document.getElementById('app')
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+  document.getElementById("app")
 );

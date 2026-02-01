@@ -81,8 +81,8 @@ export const AllVariants: Story = {
 
 export const DesktopInContext: Story = {
 	render: () => (
-		<div className="min-h-screen bg-gray-900/50 flex items-center justify-end p-8">
-			<div className="bg-white shadow-2xl">
+		<div className="min-h-screen bg-[color:var(--surface-color-overlay-background)] flex items-center justify-end p-8">
+			<div className="bg-surface-page shadow-2xl">
 				<LoginDrawer size="desktop" />
 			</div>
 		</div>
@@ -91,8 +91,8 @@ export const DesktopInContext: Story = {
 
 export const MobileInContext: Story = {
 	render: () => (
-		<div className="min-h-screen bg-gray-900/50 flex items-center justify-center p-4">
-			<div className="bg-white shadow-2xl">
+		<div className="min-h-screen bg-[color:var(--surface-color-overlay-background)] flex items-center justify-center p-4">
+			<div className="bg-surface-page shadow-2xl">
 				<LoginDrawer size="mobile" />
 			</div>
 		</div>

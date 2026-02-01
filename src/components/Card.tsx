@@ -43,21 +43,33 @@ export function Card({
 	const graphic = size === 'desktop' ? cardGraphicDesktop : cardGraphicMobile;
 
 	return (
-    <div
-      className={`inline-flex items-center justify-between rounded-[20px] bg-[#fc4c02] ${sizeStyles[size]} ${className}`.trim()}
-    >
-      <div className={`flex flex-col w-[50%] ${contentGapStyles[size]}`}>
-        <h2 className={`text-white font-['Inter'] ${titleStyles[size]}`}>{title}</h2>
-        <Button
-          size="sm"
-          onClick={onButtonClick}
-          className="!bg-[#1fceb5] !text-black hover:!bg-[#1ab5a0] !px-4 !py-2.5 !gap-2 w-fit"
-        >
-          <img src={userIcon} alt="" className="w-[10px] h-[11px]" aria-hidden="true" />
-          {buttonText}
-        </Button>
-      </div>
-      <img src={graphic} alt="" className={`${graphicSizes[size]}`} aria-hidden="true" />
-    </div>
+		<div
+			className={`inline-flex items-center justify-between rounded-[20px] bg-surface-primary ${sizeStyles[size]} ${className}`.trim()}
+		>
+			<div className={`flex flex-col w-[50%] ${contentGapStyles[size]}`}>
+				<h2 className={`text-inverse font-heading ${titleStyles[size]}`}>
+					{title}
+				</h2>
+				<Button
+					size="sm"
+					onClick={onButtonClick}
+					className="!bg-action-primary !text-action-onprimary hover:!bg-action-hover-primary !px-4 !py-2.5 !gap-2 w-fit"
+				>
+					<img
+						src={userIcon}
+						alt=""
+						className="w-[10px] h-[11px]"
+						aria-hidden="true"
+					/>
+					{buttonText}
+				</Button>
+			</div>
+			<img
+				src={graphic}
+				alt=""
+				className={`${graphicSizes[size]}`}
+				aria-hidden="true"
+			/>
+		</div>
   );
 }

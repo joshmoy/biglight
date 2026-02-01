@@ -54,7 +54,7 @@ export function LoginDrawer({
 
 	return (
 		<div
-			className={`flex flex-col bg-white ${sizeStyles[size]} ${className}`.trim()}
+			className={`flex flex-col bg-surface-page ${sizeStyles[size]} ${className}`.trim()}
 		>
 			<button
 				onClick={onClose}
@@ -72,11 +72,11 @@ export function LoginDrawer({
 			<div className={`flex flex-col ${formGapStyles[size]}`}>
 				<div className="flex flex-col gap-8">
 					<h2
-						className={`font-['Inter'] font-medium text-[#fc4c02] ${titleStyles[size]}`}
+						className={`font-heading font-medium text-brand ${titleStyles[size]}`}
 					>
 						Log into your account
 					</h2>
-					<p className="font-['Inter'] text-base font-normal leading-[22.4px] text-black">
+					<p className="font-body text-base font-normal leading-[22.4px] text-body">
 						Please enter your email for a one-time-only code
 					</p>
 				</div>
@@ -104,7 +104,7 @@ export function LoginDrawer({
 						variant="primary"
 						size="md"
 						onClick={onContinue}
-						className="w-full !bg-black !text-white hover:!bg-gray-800 !px-6 !py-3.5"
+						className="w-full !bg-action-secondary !text-action-onsecondary hover:!bg-action-hover-secondary !px-6 !py-3.5"
 					>
 						Continue
 					</Button>
@@ -112,7 +112,7 @@ export function LoginDrawer({
 						variant="tertiary"
 						size="md"
 						onClick={onPasswordLogin}
-						className="w-full !bg-white !text-black !border-[1.5px] !border-black hover:!bg-gray-50 !px-6 !py-3.5"
+						className="w-full !bg-surface-secondary !text-action-ontertiary !border-[1.5px] !border-border-primary hover:!bg-surface-hover !px-6 !py-3.5"
 					>
 						Login with your password
 					</Button>

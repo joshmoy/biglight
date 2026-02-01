@@ -3,7 +3,6 @@ import ClockIcon from '../assets/icons/clock.svg';
 import ClockDisabledIcon from '../assets/icons/clock-disabled.svg';
 import ChevronDownIcon from '../assets/icons/chevron-down.svg';
 import ChevronDownDisabledIcon from '../assets/icons/chevron-down-disabled.svg';
-import IndicatorLine from '../assets/icons/indicator-line.svg';
 
 export interface DropdownOption {
 	value: string;
@@ -84,12 +83,12 @@ export function Dropdown({
 			return 'border-0';
 		}
 		if (isOpen || isFocused) {
-			return 'border-[1.5px] border-[#d1cfc7]';
+			return 'border-[1.5px] border-[color:var(--border-color-passive)]';
 		}
 		if (hasValue) {
-			return 'border-[2px] border-[#d1cfc7]';
+			return 'border-[2px] border-[color:var(--border-color-passive)]';
 		}
-		return 'border-[0.5px] border-[#d1cfc7]';
+		return 'border-[0.5px] border-[color:var(--border-color-passive)]';
 	};
 
 	const getClockIcon = () => {
@@ -109,7 +108,9 @@ export function Dropdown({
 					onClick={handleToggle}
 					disabled={disabled}
 					className={`relative flex items-center gap-2 w-full rounded-md px-3 py-3.5 transition-all text-left ${getBorderStyle()} ${
-						disabled ? 'bg-[#f5f4f0] cursor-not-allowed' : 'bg-[#faf9f5] cursor-pointer'
+						disabled
+							? 'bg-surface-disabled-dark cursor-not-allowed'
+							: 'bg-surface-page cursor-pointer'
 					}`}
 				>
 					<div className="flex items-center gap-2 flex-1">
@@ -124,7 +125,7 @@ export function Dropdown({
 									? 'text-disabled'
 									: hasValue
 									? 'text-body font-medium'
-									: 'text-passive'
+								: 'text-body'
 							}`}
 						>
 							{showFloatingLabel && !hasValue ? '' : displayText}
@@ -140,12 +141,7 @@ export function Dropdown({
 				</button>
 
 				{showFloatingLabel && (
-					<div className="absolute left-3 -top-[6px] flex items-center gap-0 bg-[#faf9f5] pointer-events-none">
-						{hasValue && !disabled && (
-							<div className="w-[39px] h-[2px] bg-[#faf9f5] relative">
-								<div className="absolute top-0 left-0 w-full h-[2px] bg-[#faf9f5]" />
-							</div>
-						)}
+					<div className="absolute left-3 -top-[6px] flex items-center gap-0 bg-surface-page pointer-events-none">
 						<label
 							htmlFor={dropdownId}
 							className={`text-body-xs leading-body-xs px-1 ${
@@ -158,7 +154,7 @@ export function Dropdown({
 				)}
 
 				{isOpen && !disabled && (
-					<div className="absolute top-full left-0 w-full mt-2 bg-[#faf9f5] rounded-md shadow-lg border border-[#d1cfc7] z-10 overflow-hidden">
+					<div className="absolute top-full left-0 w-full mt-2 bg-surface-page rounded-md shadow-lg border border-[color:var(--border-color-passive)] z-10 overflow-hidden">
 						<div className="max-h-[200px] overflow-y-auto">
 							{options.map((option) => (
 								<button

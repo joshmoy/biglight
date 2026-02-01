@@ -56,12 +56,12 @@ export function Input({
 			return 'border-[1.5px] border-border-error';
 		}
 		if (isFocused) {
-			return 'border-[1.5px] border-[#d1cfc7]';
+			return 'border-[1.5px] border-[color:var(--border-color-passive)]';
 		}
 		if (hasValue) {
-			return 'border-[2px] border-[#d1cfc7]';
+			return 'border-[2px] border-[color:var(--border-color-passive)]';
 		}
-		return 'border-[0.5px] border-[#d1cfc7]';
+		return 'border-[0.5px] border-[color:var(--border-color-passive)]';
 	};
 
 	const getIcon = () => {
@@ -126,10 +126,10 @@ export function Input({
 				</div>
 
 				{showFloatingLabel && (
-					<div className="absolute left-3 -top-[6px] flex items-center gap-0 bg-[#faf9f5]">
+					<div className="absolute left-3 -top-[6px] flex items-center gap-0 bg-surface-page">
 						{hasValue && !error && !disabled && (
-							<div className="w-[39px] h-[2px] bg-[#faf9f5] relative">
-								<div className="absolute top-0 left-0 w-full h-[2px] bg-[#faf9f5]" />
+							<div className="w-[39px] h-[2px] bg-surface-page relative">
+								<div className="absolute top-0 left-0 w-full h-[2px] bg-surface-page" />
 							</div>
 						)}
 						<label
