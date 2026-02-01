@@ -1,14 +1,17 @@
 # `create-preact`
 
-<h2 align="center">
-  <img height="256" width="256" src="./src/assets/preact.svg">
-</h2>
+## Setup
 
-<h3 align="center">Get started using Preact and Vite!</h3>
+-   `npm create preact@latest .` - Create the Preact app
+-   `npm install` - Install base dependencies
+-   `npm add -D tailwindcss postcss autoprefixer` - Install Tailwind tooling
+-   `npx storybook@latest init` - Initialize Storybook
 
 ## Getting Started
 
 -   `npm run dev` - Starts a dev server at http://localhost:5173/
+
+-   `npm run storybook` - Starts Storybook locally at http://localhost:6006/
 
 -   `npm run build` - Builds for production, emitting to `dist/`
 
