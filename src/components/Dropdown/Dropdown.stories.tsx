@@ -86,9 +86,9 @@ export const Selected: Story = {
 	render: () => <DropdownWrapper label="Label" value="retail" required />,
 };
 
-export const WithLeftIcon: Story = {
+export const WithoutLeftIcon: Story = {
 	render: () => (
-		<DropdownWrapper label="Label" value="retail" required showLeftIcon />
+		<DropdownWrapper label="Label" value="retail" required showLeftIcon={false} />
 	),
 };
 

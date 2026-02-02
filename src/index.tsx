@@ -1,40 +1,11 @@
 import { render } from "preact";
-import { useEffect, useState } from "preact/hooks";
-
-import { LoginDrawer, ThemeToggle } from "./components";
+import { AppShell } from "./components";
 import { ThemeProvider } from "./contexts";
 import "./style.css";
 
 export function App() {
-  const [size, setSize] = useState<"mobile" | "desktop">("desktop");
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const mediaQuery = window.matchMedia("(max-width: 767px)");
-    const updateSize = () => {
-      setSize(mediaQuery.matches ? "mobile" : "desktop");
-    };
-
-    updateSize();
-    mediaQuery.addEventListener("change", updateSize);
-
-    return () => {
-      mediaQuery.removeEventListener("change", updateSize);
-    };
-  }, []);
-
   return (
-    <div className="min-h-screen bg-white">
-      <nav className="w-full bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-end">
-          <ThemeToggle />
-        </div>
-      </nav>
-      <main className="min-h-[calc(100vh-72px)] flex items-center justify-center px-6 py-8">
-        <LoginDrawer size={size} />
-      </main>
-    </div>
+    <AppShell />
   );
 }
 

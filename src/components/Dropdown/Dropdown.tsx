@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'preact/hooks';
-import ClockIcon from '../assets/icons/clock.svg';
-import ClockDisabledIcon from '../assets/icons/clock-disabled.svg';
-import ChevronDownIcon from '../assets/icons/chevron-down.svg';
-import ChevronDownDisabledIcon from '../assets/icons/chevron-down-disabled.svg';
+import ClockIcon from '../../assets/icons/clock.svg';
+import ClockDisabledIcon from '../../assets/icons/clock-disabled.svg';
+import ChevronDownIcon from '../../assets/icons/chevron-down.svg';
+import ChevronDownDisabledIcon from '../../assets/icons/chevron-down-disabled.svg';
 
 export interface DropdownOption {
 	value: string;
@@ -108,9 +108,9 @@ export function Dropdown({
 					onClick={handleToggle}
 					disabled={disabled}
 					className={`relative flex items-center gap-2 w-full rounded-md px-3 py-3.5 transition-all text-left ${getBorderStyle()} ${
-						disabled
+						(hasValue || disabled)
 							? 'bg-surface-disabled-dark cursor-not-allowed'
-							: 'bg-surface-page cursor-pointer'
+							: 'cursor-pointer'
 					}`}
 				>
 					<div className="flex items-center gap-2 flex-1">

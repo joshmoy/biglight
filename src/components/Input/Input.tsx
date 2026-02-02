@@ -1,9 +1,9 @@
 import type { JSX } from 'preact';
 import { useState } from 'preact/hooks';
-import CloseIcon from '../assets/icons/close.svg';
-import CloseDisabledIcon from '../assets/icons/close-disabled.svg';
-import CloseErrorIcon from '../assets/icons/close-error.svg';
-import CheckSuccessIcon from '../assets/icons/check-success.svg';
+import CloseIcon from '../../assets/icons/close.svg';
+import CloseDisabledIcon from '../../assets/icons/close-disabled.svg';
+import CloseErrorIcon from '../../assets/icons/close-error.svg';
+import CheckSuccessIcon from '../../assets/icons/check-success.svg';
 
 export interface InputProps {
 	label: string;
@@ -86,7 +86,7 @@ export function Input({
 			<div className="relative">
 				<div
 					className={`relative flex items-center gap-2 rounded-md px-3 py-3.5 transition-all ${getBorderStyle()} ${
-						disabled ? 'bg-surface-disabled-dark' : 'bg-surface-page'
+						(hasValue || disabled) && 'bg-surface-disabled-dark' 
 					}`}
 				>
 					<input
@@ -103,7 +103,7 @@ export function Input({
 								? 'text-disabled placeholder:text-disabled'
 								: hasValue
 								? 'text-body'
-								: 'text-passive placeholder:text-passive'
+								: 'text-body placeholder:text-body'
 						}`}
 					/>
 					{(hasValue || error || success || disabled) && (
@@ -128,7 +128,7 @@ export function Input({
 				{showFloatingLabel && (
 					<div className="absolute left-3 -top-[6px] flex items-center gap-0 bg-surface-page">
 						{hasValue && !error && !disabled && (
-							<div className="w-[39px] h-[2px] bg-surface-page relative">
+							<div className="h-[2px] bg-surface-page relative">
 								<div className="absolute top-0 left-0 w-full h-[2px] bg-surface-page" />
 							</div>
 						)}

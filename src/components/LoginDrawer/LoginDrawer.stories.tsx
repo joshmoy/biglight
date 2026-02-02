@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/preact-vite';
 import { fn } from 'storybook/test';
-import { LoginDrawer } from './LoginDrawer';
-import type { LoginDrawerProps } from './LoginDrawer';
+import { LoginDrawer } from "./LoginDrawer";
+import type { LoginDrawerProps } from "./LoginDrawer";
 
 const meta = {
 	title: 'Components/LoginDrawer',
