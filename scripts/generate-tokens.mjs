@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
-const tokensPath = path.join(rootDir, 'public', 'figma-tokens.json');
+const tokensPath = path.join(rootDir, 'tokens', 'figma-tokens.json');
 const generatedDir = path.join(rootDir, 'src', 'styles', 'generated');
 const themesDir = path.join(rootDir, 'src', 'styles', 'themes');
 
