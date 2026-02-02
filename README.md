@@ -39,4 +39,4 @@
 
 ## Time Spent
 
--   Approximate time spent: TODO
+-   Approximate time spent: 6 hours
