@@ -26,4 +26,4 @@ Trade-offs in this implementation include using a lightweight custom generator r
 
 ## AI usage
 
-I used AI as a support tool throughout the project. It helped me brainstorm the pipeline approach, build a step-by-step checklist, and understand the Figma token structure more quickly. I also used it to draft the token generation script, map theme variables into Tailwind, and debug Storybook configuration issues.
+I used AI as a support tool throughout the project. It helped me brainstorm the pipeline approach, build a step-by-step checklist, and understand the Figma token structure more quickly. I also used it to draft the token generation script, map theme variables into Tailwind, and debug Storybook configuration issues. I used a combination of Kombai and Cursor.
